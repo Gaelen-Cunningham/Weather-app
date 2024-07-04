@@ -1,7 +1,6 @@
 import pytest
 import requests
 
-# Assuming your FastAPI is running locally on port 8000
 BASE_URL = 'http://127.0.0.1:8000/'
 
 @pytest.fixture
@@ -31,5 +30,3 @@ def test_get_weather_invalid_city(api_url):
     data = response.json()
     assert "detail" in data, "Expected 'detail' in response"
     assert "City not found" in data["detail"], f"Expected 'City not found' message in response, but got {data['detail']}"
-
-# Add more test cases as needed for different scenarios (error cases, edge cases, etc.)
