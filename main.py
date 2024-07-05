@@ -3,10 +3,6 @@ from fastapi import FastAPI, HTTPException
 
 app = FastAPI()
 
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
-
 @app.get("/weather/{city}")
 async def get_weather(city: str):
     weather_response = requests.get(f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid=953a93326f0b7ebbf0d6bbaaa9386794&units=metric")
